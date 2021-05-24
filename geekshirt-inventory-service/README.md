@@ -1,0 +1,1 @@
+geekshirt-inventory-service

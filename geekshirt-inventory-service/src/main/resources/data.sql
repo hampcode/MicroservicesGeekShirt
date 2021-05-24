@@ -1,0 +1,2 @@
+INSERT INTO PRODUCT(NAME, DESCRIPTION, SKU, SIZE, COLOR, IMAGE, UPC, UNIT_PRICE, UNITS_IN_STOCK, CREATED_DATE)
+VALUES ('DBZ Vegeta Shirt', 'Dragon Ball t-shirt with vegeta stamping', '7890123432134', 'L', 'WHITE', 'pictures/dbz/vegeta_white.png', '999818727312', 19.99, 200, '2019-06-07 11:11:00');
