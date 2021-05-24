@@ -20,3 +20,6 @@ Aprende como dar certidumbre a tus microservicios, y  funcionen con el comportam
 
 ## Arquitectura 🛠️
 ![arquitectura](img/arquitectura.png)
+
+## Base de Datos 🛠️
+![arquitectura](img/basedatos.png)
