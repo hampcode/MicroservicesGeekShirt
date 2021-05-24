@@ -1,16 +1,27 @@
 package com.geekshirt.orderservice.service;
 
+import com.geekshirt.orderservice.client.CustomerServiceClient;
+import com.geekshirt.orderservice.dto.AccountDto;
 import com.geekshirt.orderservice.dto.OrderRequest;
 import com.geekshirt.orderservice.entities.Order;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+@Slf4j
 @Service
 public class OrderService {
+
+    @Autowired
+    private CustomerServiceClient customerClient;
+
     public Order createOrder(OrderRequest orderRequest) {
+        AccountDto account = customerClient.findAccount(orderRequest.getAccountId());
+        log.info("Account: ",account);
         Order response = new Order();
         response.setAccountId(orderRequest.getAccountId());
         response.setOrderId("9999");
