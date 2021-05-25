@@ -1,0 +1,8 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Datasource local storage ignored files
+/../../../../../../../../../:\JMFI\DOCENCIA\UPC\CICLO 202101\DESARROLLO AVANZADO CON JAVA\WS_IJIDEA_LABORATORIOS\MicroservicesGeekShirt\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
