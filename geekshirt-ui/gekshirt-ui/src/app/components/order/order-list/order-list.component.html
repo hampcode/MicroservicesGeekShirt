@@ -1,0 +1,24 @@
+<p>order-list works!</p>
+
+<table>
+  <thead>
+  <tr>
+        <th>Order ID</th>
+        <th>Status </th>
+        <th>Account Id</th>
+        <th>Total Amount</th>
+        <th>Total Tax</th>
+        <th>Transaction Date</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let order of orders ">
+      <td>{{order.orderId}}</td>
+      <td>{{order.status}} </td>
+      <td>{{order.accountId}}</td>
+      <td>{{order.totalAmount}}</td>
+      <td>{{order.totalTax}}</td>
+      <td>{{order.transactionDate}}</td>
+    </tr>
+  </tbody>
+</table>

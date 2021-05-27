@@ -16,6 +16,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+
+@CrossOrigin(origins = "http://localhost:4200")
 @Api
 @RestController
 public class OrderController {
