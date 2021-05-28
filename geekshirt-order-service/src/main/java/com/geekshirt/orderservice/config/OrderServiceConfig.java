@@ -15,6 +15,9 @@ public class OrderServiceConfig {
     @Value("${customerservice.url}")
     private String customerServiceUrl;
 
+    @Value("${paymentservice.url}")
+    private String paymentServiceUrl;
+
     @Bean
     public ModelMapper modelMapper() {
         return new ModelMapper();
