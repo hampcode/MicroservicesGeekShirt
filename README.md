@@ -22,6 +22,12 @@ Aprende como dar certidumbre a tus microservicios, y  funcionen con el comportam
 * **José Miguel Flores Ingaruca (Frontend)** -  [Linkedin](https://www.linkedin.com/in/jose-miguel-flores-ingaruca)
 * **Henry Antonio Mendoza Puerta (Backend)** -  [Linkedin](https://www.linkedin.com/in/henrymendozapuerta)
 
+## Videos 🛠️
+* [Explicación del proyecto](https://bit.ly/3yOgjW9)
+* [Aceptando llamadas HTTP con Controladores REST](https://bit.ly/3yPp3vn)
+* [Describiendo nuestros servicios REST con Swagger](https://bit.ly/2Tjxkav)
+* [Crear componentes en Spring](https://bit.ly/3vw9sid)
+
 ## Arquitectura 🛠️
 ![arquitectura](img/arquitectura.png)
 
