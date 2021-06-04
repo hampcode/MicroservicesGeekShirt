@@ -1,6 +1,7 @@
 package com.geekshirt.orderservice.service;
 
 import com.geekshirt.orderservice.client.CustomerServiceClient;
+import com.geekshirt.orderservice.client.InventoryServiceClient;
 import com.geekshirt.orderservice.dto.AccountDto;
 import com.geekshirt.orderservice.dto.Confirmation;
 import com.geekshirt.orderservice.dto.OrderRequest;
@@ -34,6 +35,9 @@ public class OrderService {
     @Autowired
     private PaymentProcessorService paymentService;
 
+    @Autowired
+    private InventoryServiceClient inventoryClient;
+
     @Transactional(isolation = Isolation.READ_COMMITTED, propagation = Propagation.REQUIRED)
     public Order createOrder(OrderRequest orderRequest) throws PaymentNotAcceptedException {
         OrderValidator.validateOrder(orderRequest);
@@ -56,6 +60,9 @@ public class OrderService {
             orderRepository.save(newOrder);
             throw new PaymentNotAcceptedException("The Payment added to your account was not accepted, please verify.");
         }
+
+        log.info("Updating Inventory: {}", orderRequest.getItems());
+        inventoryClient.updateInventory(orderRequest.getItems());
 
         return orderRepository.save(newOrder);
     }

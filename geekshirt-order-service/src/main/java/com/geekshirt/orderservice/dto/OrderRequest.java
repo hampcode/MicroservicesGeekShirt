@@ -2,13 +2,13 @@ package com.geekshirt.orderservice.dto;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.Getter;
+import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
-@Getter
+@Data
 @ApiModel(description = "Class representing a order to be processed")
 public class OrderRequest {
     @NotBlank
