@@ -1,13 +1,7 @@
 import {Item} from "./Item";
 
-export class ItemOrder{
+export interface ItemOrder{
   accountId:number;
-  items: Item;
-
-  //constructor
-  constructor(accountId:number,items: Item) {
-    this.accountId=accountId;
-    this.items=items;
-  }
+  items:Item[];
 }
 
