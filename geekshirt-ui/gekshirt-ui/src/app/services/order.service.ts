@@ -12,18 +12,11 @@ export class OrderService {
   constructor(private http:HttpClient) { }
   Url='http://localhost:8081/api/v1/order';
 
-  private orders: ItemOrders= new ItemOrders();
-
 
   getOrders(){
     return this.http.get<Order[]>(this.Url);
   }
-  create(data:any):Observable<any>{
-    return this.http.post(this.Url,data);
-  }
-  get ProductsOrders(){
-    return this.orders;
-  }
+
   saveOrder(order:ItemOrders){
     return this.http.post(this.Url,order);
   }
