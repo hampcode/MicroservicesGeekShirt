@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Order} from "../models/Order";
 import {ItemOrders} from "../models/ItemOrders";
 import {Observable} from "rxjs";
+import {ItemOrder} from "../models/ItemOrder";
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class OrderService {
     return this.http.get<Order[]>(this.Url);
   }
 
-  saveOrder(order:ItemOrders){
+  saveOrder(order:ItemOrder){
     return this.http.post(this.Url,order);
   }
 
