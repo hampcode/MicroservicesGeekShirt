@@ -1,58 +1,71 @@
 <p>order-add works!</p>
 
+<div class="row">
+
+<div class="col-sm-8">
+
 <div class="row card-deck">
-  <div class="col-lg-4 col-md-6 mb-4" >
+  <div class="col-lg-4 col-md-6 mb-4"   *ngFor="let product of products" >
     <div class="card text-center">
       <div class="card-header">
-        <h4> "Título" </h4>
+        <h4> {{product.upc}} </h4>
       </div>
       <div class="card-body">
         <a href="#"><img class="card-img-top" src="" alt=""></a>
-        <h5 class="card-title">$  PRECIO  </h5>
+        <h5 class="card-title">$ {{product.price}}  </h5>
 
         <div class="row">
-
+            <img src="assets/images/{{product.upc}}.jpg">
         </div>
 
         <div class="row">
-          <div class="col-4 padding-0" >
-            <input type="number" min="0" class="form-control" >
+          <div class="col-4 padding-0" *ngIf="!isProductSelected(product)">
+            <input type="number" min="0" class="form-control" [(ngModel)]=product.quantity>
           </div>
 
-          <div class="col-8 padding-0" >
-            <button class="btn btn-primary btn-block">Add To Cart
+          <div class="col-8 padding-0" *ngIf="!isProductSelected(product)">
+            <button class="btn btn-primary btn-block" (click)="addToCart(product)"
+                    [disabled]="product.quantity <= 0">Add To Cart
             </button>
           </div>
-          <div class="col-12" >
-            <button class="btn btn-primary btn-block">Remove From Cart
+          <div class="col-12" *ngIf="isProductSelected(product)">
+            <button class="btn btn-primary btn-block"
+                    (click)="removeFromCart(product)">Remove From Cart
             </button>
           </div>
-        </div>
       </div>
     </div>
   </div>
 </div>
+</div>
 
+</div>
 
-<div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+  <div class="col-sm-4">
+
+  <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
   <div class="card-header text-center" style="font-size: 25px;font-weight: bold"> ORDER</div>
-  <div class="card-header text-center">Shopping Cart  </div>
+  <div class="card-header text-center">Shopping Cart <img src="assets/images/car.png">  </div>
   <div class="card-body">
-    <h5 class="card-title">Total amount: $ </h5>
+    <h5 class="card-title">Total amount: ${{total}} </h5>
     <hr>
 
-    <h6 class="card-title">  Items bought:</h6>
+    <h6 class="card-title"> <img src="assets/images/bookmark.png">  Items bought:</h6>
 
     <ul>
-      <li >
-        - $ x pcs.
+      <li *ngFor="let order of productItem" >
+        {{order.upc}}- ${{order.price}} x {{order.quantity}} pcs.
       </li>
     </ul>
 
-    <button class="btn btn-primary btn-block">Pay</button>
+    <button class="btn btn-primary btn-block" (click)="pay()" *ngIf="!paid">Pay</button>
 
-    <div class="alert alert-success" role="alert">
-      <strong> Congratulation!</strong> You successfully made the order.
+    <div class="alert alert-success" role="alert" *ngIf="paid">
+      <strong><img src="assets/images/check.png"> Congratulation!</strong> You successfully made the order.
     </div>
   </div>
+</div>
+
+  </div>
+
 </div>
