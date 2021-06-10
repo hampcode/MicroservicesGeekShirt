@@ -15,15 +15,17 @@ export class OrderAddComponent implements OnInit {
 
   paid:boolean;
   productSelected:boolean;
-
+  total: number;
 
   products:Item[]=[];
+
   order={} as ItemOrder;
   productItem: Item[]=[];
 
   constructor(private orderService:OrderService ) {
     this.paid=false;
     this.productSelected=false;
+    this.total=0;
 
   }
 
@@ -49,15 +51,38 @@ export class OrderAddComponent implements OnInit {
   }
 
   addToCart(product:Item){
-
+      this.productItem.push(product);
+      console.log(product);
+      this.productSelected=true;
+      this.total=this.calculateTotal();
 
   }
   removeFromCart(product:Item){
-
+    const index=this.getProductIndex(product);
+    if(index>-1){
+      this.productItem.splice(this.getProductIndex(product),1);
+    }
+    this.productSelected=false;
+    this.total=this.calculateTotal();
   }
 
   pay(){
+    this.order.accountId=1;
+    this.order.items=this.productItem;
+    console.log(this.order);
+
+    this.orderService.saveOrder(this.order).subscribe();
+    this.paid=true;
 
   }
+
+  calculateTotal():number{
+    let sum=0;
+    this.productItem.forEach(value => {
+      sum+=(value.price * value.quantity);
+    });
+    return sum;
+  }
+
 
 }
