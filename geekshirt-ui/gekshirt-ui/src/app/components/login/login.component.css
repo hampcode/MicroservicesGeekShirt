@@ -1,0 +1,30 @@
+
+.contenedor{
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+  background-color: #f5f5f5;
+}
+.login{
+  width: 100%;
+  max-width: 333px;
+  text-align: center;
+}
+
+img{
+  width: 50%;
+}
+
+.ancho{
+  width: 80%;
+}
+
+.boton{
+  width: 80%;
+  height: 50px;
+}
+
+.spiner{
+  margin: 0 auto;
+}
